@@ -13,4 +13,15 @@ the following form: YYYY.0M.0D.
 - Designed a Crochet component
 - Designed a Music Playlist component
 - Designed a Book component
+
+## 2026.02.24
+
+### Added
+
+- Designed a proof of concept for Crochet Pattern component
+
+### Updated
+
+- Changed design to include specific OSU component Queue
+
 ```
