@@ -14,3 +14,27 @@ the following form: YYYY.0M.0D.
 - Designed a Music Playlist component
 - Designed a Book component
 ```
+## 2026.03.09
+
+### Added
+
+- Designed kernel and enhanced interfaces for crochet component
+
+### Updated
+
+- Changed design to include more Standard methods
+
+```
+
+## 2026.03.30
+
+### Added
+
+- Wrote the Crochet Secondary abstract class
+- Wrote the toString() and equals() object methods
+
+### Updated
+
+- None
+
+```
