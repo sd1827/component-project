@@ -25,3 +25,16 @@ the following form: YYYY.0M.0D.
 - Changed design to include more Standard methods
 
 ```
+
+## 2026.03.30
+
+### Added
+
+- Wrote the Crochet Secondary abstract class
+- Wrote the toString() and equals() object methods
+
+### Updated
+
+- None
+
+```
