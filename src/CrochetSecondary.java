@@ -5,7 +5,7 @@
 public abstract class CrochetSecondary implements Crochet {
 
     @Override
-    public String toString() {
+    public final String toString() {
         StringBuilder result = new StringBuilder("(");
         result.append(this.isEmpty());
         result.append(",\"");
@@ -36,7 +36,7 @@ public abstract class CrochetSecondary implements Crochet {
     }
 
     @Override
-    public boolean equals(Crochet p) {
+    public final boolean equals(Crochet p) {
         boolean equal = true;
         Crochet thisTemp = this.newInstance();
         Crochet pTemp = p.newInstance();
@@ -67,7 +67,7 @@ public abstract class CrochetSecondary implements Crochet {
     }
 
     @Override
-    public int firstRow() {
+    public final int firstRow() {
         Crochet temp = this.newInstance();
         int first = 0;
 
@@ -84,7 +84,7 @@ public abstract class CrochetSecondary implements Crochet {
     }
 
     @Override
-    public int lastRow() {
+    public final int lastRow() {
         Crochet temp = this.newInstance();
         int last = 0;
         last = this.removeRow();
@@ -99,7 +99,7 @@ public abstract class CrochetSecondary implements Crochet {
     }
 
     @Override
-    public void appendPattern(Crochet p) {
+    public final void appendPattern(Crochet p) {
         Crochet temp = p.newInstance();
         Crochet storage = p.newInstance();
 
@@ -128,7 +128,7 @@ public abstract class CrochetSecondary implements Crochet {
     }
 
     @Override
-    public int totalRows() {
+    public final int totalRows() {
         Crochet temp = this.newInstance();
         int first = 0;
         int counter = 0;
@@ -147,7 +147,7 @@ public abstract class CrochetSecondary implements Crochet {
     }
 
     @Override
-    public int stitchesInRow() {
+    public final int stitchesInRow() {
         Crochet temp = this.newInstance();
         int last = 0;
         int counter = 0;
