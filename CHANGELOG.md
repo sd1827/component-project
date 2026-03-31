@@ -13,4 +13,11 @@ the following form: YYYY.0M.0D.
 - Designed a Crochet component
 - Designed a Music Playlist component
 - Designed a Book component
+
+## 2026.03.30
+
+### Added
+
+- Wrote the Crochet Secondary abstract class
+- Added toString() and equals() object methods
 ```
