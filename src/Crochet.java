@@ -32,7 +32,7 @@ public interface Crochet extends CrochetKernel {
      * @updates this
      * @ensures this is added to a new pattern
      */
-    void appendPattern();
+    void appendPattern(Crochet p);
 
     /**
      * Returns the number of rows in project.
@@ -51,5 +51,14 @@ public interface Crochet extends CrochetKernel {
      * @ensures stitchesInRow = number of stitches in current row
      */
     int stitchesInRow();
+
+    /**
+     * Returns if the two patterns are the same
+     *
+     * @return boolean true or false
+     * @requires this is not empty
+     * @ensures true if patterns are equal
+     */
+    boolean equals(Crochet p);
 
 }

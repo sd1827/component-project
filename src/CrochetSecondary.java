@@ -98,32 +98,33 @@ public abstract class CrochetSecondary implements Crochet {
         return last;
     }
 
-   @Override
-   public void appendPattern(Crochet p) {
-    Crochet temp = p.newInstance();
-    Crochet storage = p.newInstance();
+    @Override
+    public void appendPattern(Crochet p) {
+        Crochet temp = p.newInstance();
+        Crochet storage = p.newInstance();
 
-    while (!p.isEmpty()) {
-        int s = p.removeRow();
-        storage.addRow();
-        for (int i = 0; i < s; i++) {
-            storage.addStitch();
-        }
-    }
-
-    while (!storage.isEmpty()) {
-        int s = storage.removeRow();
-
-        this.addRow();
-        for (int i = 0; i < s; i++) {
-            this.addStitch();
+        while (!p.isEmpty()) {
+            int s = p.removeRow();
+            storage.addRow();
+            for (int i = 0; i < s; i++) {
+                storage.addStitch();
+            }
         }
 
-        temp.addRow();
-        for (int i = 0; i < s; i++) {
-            temp.addStitch();
+        while (!storage.isEmpty()) {
+            int s = storage.removeRow();
+
+            this.addRow();
+            for (int i = 0; i < s; i++) {
+                this.addStitch();
+            }
+
+            temp.addRow();
+            for (int i = 0; i < s; i++) {
+                temp.addStitch();
+            }
+            p.transferFrom(temp);
         }
-    p.transferFrom(temp);
     }
 
     @Override
