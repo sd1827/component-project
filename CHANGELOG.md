@@ -20,4 +20,10 @@ the following form: YYYY.0M.0D.
 
 - Wrote the Crochet Secondary abstract class
 - Added toString() and equals() object methods
+
+## 2026.04.13
+
+### Added
+
+- Wrote the CrochetOnQueue kernel implementation
 ```
