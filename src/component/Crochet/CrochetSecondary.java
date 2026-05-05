@@ -1,5 +1,7 @@
+package component.Crochet;
+
 /**
- * * Layered implementations of secondary methods for Crochet
+ * Layered implementations of secondary methods for Crochet.
  */
 
 public abstract class CrochetSecondary implements Crochet {
@@ -60,6 +62,10 @@ public abstract class CrochetSecondary implements Crochet {
             }
         }
 
+        if (!this.isEmpty() || !p.isEmpty()) {
+            equal = false;
+        }
+
         this.transferFrom(thisTemp);
         p.transferFrom(pTemp);
 
@@ -69,12 +75,17 @@ public abstract class CrochetSecondary implements Crochet {
     @Override
     public final int firstRow() {
         Crochet temp = this.newInstance();
-        int first = 0;
+        int first = this.removeRow();
+        temp.addRow();
+
+        for (int i = 0; i < first; i++) {
+            temp.addStitch();
+        }
 
         while (!this.isEmpty()) {
-            first = this.removeRow();
+            int current = this.removeRow();
             temp.addRow();
-            for (int i = 0; i < first; i++) {
+            for (int i = 0; i < current; i++) {
                 temp.addStitch();
             }
         }
@@ -87,11 +98,15 @@ public abstract class CrochetSecondary implements Crochet {
     public final int lastRow() {
         Crochet temp = this.newInstance();
         int last = 0;
-        last = this.removeRow();
 
-        temp.addRow();
-        for (int i = 0; i < last; i++) {
-            temp.addStitch();
+        while (!this.isEmpty()) {
+            int current = this.removeRow();
+            last = current;
+
+            temp.addRow();
+            for (int i = 0; i < current; i++) {
+                temp.addStitch();
+            }
         }
 
         this.transferFrom(temp);
@@ -101,30 +116,20 @@ public abstract class CrochetSecondary implements Crochet {
     @Override
     public final void appendPattern(Crochet p) {
         Crochet temp = p.newInstance();
-        Crochet storage = p.newInstance();
 
         while (!p.isEmpty()) {
             int s = p.removeRow();
-            storage.addRow();
-            for (int i = 0; i < s; i++) {
-                storage.addStitch();
-            }
-        }
-
-        while (!storage.isEmpty()) {
-            int s = storage.removeRow();
 
             this.addRow();
+            temp.addRow();
+
             for (int i = 0; i < s; i++) {
                 this.addStitch();
-            }
-
-            temp.addRow();
-            for (int i = 0; i < s; i++) {
                 temp.addStitch();
             }
-            p.transferFrom(temp);
         }
+
+        p.transferFrom(temp);
     }
 
     @Override

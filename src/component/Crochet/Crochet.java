@@ -1,3 +1,4 @@
+package component.Crochet;
 /**
  *
  * @author Sharvari Dhile
@@ -31,6 +32,8 @@ public interface Crochet extends CrochetKernel {
      *
      * @updates this
      * @ensures this is added to a new pattern
+     * @param p
+     *            the pattern to be appended
      */
     void appendPattern(Crochet p);
 
@@ -53,11 +56,13 @@ public interface Crochet extends CrochetKernel {
     int stitchesInRow();
 
     /**
-     * Returns if the two patterns are the same
+     * Returns if the two patterns are the same.
      *
      * @return boolean true or false
      * @requires this is not empty
      * @ensures true if patterns are equal
+     * @param p
+     *            the crochet pattern to compare tp
      */
     boolean equals(Crochet p);
 

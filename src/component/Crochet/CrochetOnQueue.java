@@ -1,3 +1,4 @@
+package component.Crochet;
 import components.queue.Queue;
 import components.queue.Queue1L;
 
@@ -12,7 +13,7 @@ public class CrochetOnQueue extends CrochetSecondary {
    */
 
   /**
-   * Representation of {@code this}
+   * Representation of {@code this}.
    */
   private Queue<Queue<Integer>> rep;
 
@@ -41,8 +42,7 @@ public class CrochetOnQueue extends CrochetSecondary {
   }
 
   /*
-   * Standard methods
-   * -----------------------------------------------------------
+   * Standard methods ----------------------------------------------------------
    */
 
   @Override
@@ -98,23 +98,31 @@ public class CrochetOnQueue extends CrochetSecondary {
 
   @Override
   public final void addStitch() {
-    this.rep.flip();
+    Queue<Queue<Integer>> temp = new Queue1L<>();
+
+    while (this.rep.length() > 1) {
+        temp.enqueue(this.rep.dequeue());
+    }
     Queue<Integer> lastRow = this.rep.dequeue();
-    this.rep.flip();
     lastRow.enqueue(1);
+
+    temp.enqueue(lastRow);
+    this.rep.transferFrom(temp);
   }
 
   @Override
   public final void removeStitch(int k) {
+    Queue<Queue<Integer>> temp = new Queue1L<>();
 
-    this.rep.flip();
-    Queue<Integer> lastRow = this.rep.dequeue();
-    this.rep.flip();
-
-    for (int i = 1; i <= k; i++) {
-      lastRow.dequeue();
+    while (this.rep.length() > 1) {
+        temp.enqueue(this.rep.dequeue());
     }
 
-    this.rep.enqueue(lastRow);
-  }
+    Queue<Integer> lastRow = this.rep.dequeue();
+    for (int i = 0; i < k; i++) {
+        lastRow.dequeue();
+    }
+
+    temp.enqueue(lastRow);
+    this.rep.transferFrom(temp);
 }

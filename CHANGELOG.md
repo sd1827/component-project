@@ -26,4 +26,13 @@ the following form: YYYY.0M.0D.
 ### Added
 
 - Wrote the CrochetOnQueue kernel implementation
+
+## 2026.04.23
+
+### Added
+
+- Wrote the CrochetOnQueueTest and the CrochetTest files
+- Wrote test cases for the kernel and standard methods
+- Answered questions about the component project 
+
 ```
